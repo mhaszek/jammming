@@ -1,6 +1,7 @@
 const clientId = '2051f972471441cd8229bb9ee5ef67e6';
 //const clientSecret = '0fc7359381c44707b505cb87f5efe40a';
-const redirectURI = 'http://localhost:3000';
+//const redirectURI = 'http://localhost:3000';
+const redirectURI = 'https://jammming-by-milhaszek.surge.sh';
 
 let accessToken;
 let expiresIn;
