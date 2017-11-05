@@ -66,12 +66,12 @@ addTrack(track){
     let trackURIs =this.state.playListTracks.map(track => {
       return track.uri;
     });
-    Spotify.savePlayList(this.state.playListName, trackURIs).then(
+    Spotify.savePlayList(this.state.playListName, trackURIs).then(() => {
       this.setState({
         playListName: 'New Playlist',
         playListTracks: []
-      })
-    );
+      });
+    });
   }
 
   search(term){
