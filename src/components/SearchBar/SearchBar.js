@@ -15,11 +15,11 @@ class SearchBar extends React.Component {
     this.setState({
       term: event.target.value
     });
+    event.preventDefault();
   }
 
   search(){
     this.props.onSearch(this.state.term);
-    //event.preventDefault();
   }
 
   render() {
