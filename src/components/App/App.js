@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       searchResults: [],
-      playListName: 'mojalista',
+      playListName: 'New Playlist',
       playListTracks: []
     };
     this.addTrack = this.addTrack.bind(this);
@@ -25,19 +25,14 @@ addTrack(track){
   let updatedPlayListTracks = this.state.playListTracks.map(trackone => {
     return trackone;
   });
-  let i = 0;
-  let check = true;
-  for(i = 0; i < updatedPlayListTracks.length; i++){
-    if(track.id === updatedPlayListTracks[i].id){
-      check = false;
-    }
+  if (updatedPlayListTracks.find(trackone => trackone.id === track.id)){
+    return;
   }
-  if(check === true){
-    updatedPlayListTracks.push(track);
-    this.setState({
-      playListTracks: updatedPlayListTracks
-    });
-  };
+
+  updatedPlayListTracks.push(track);
+  this.setState({
+    playListTracks: updatedPlayListTracks
+  });
 
   /*
   console.log(check);
@@ -86,6 +81,7 @@ addTrack(track){
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
+        <h1 id="name">by Milhaszek</h1>
         <div className="App">
           <SearchBar
           onSearch={this.search}/>
